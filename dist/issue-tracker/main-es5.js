@@ -525,7 +525,7 @@ var CreateIssueComponent = /** @class */ (function () {
         //get users code end
         //create Issue code start
         this.createIssue = function () {
-            _this.signuploader == false;
+            _this.signuploader = false;
             var data = {
                 userId: _this.userId,
                 IssueTitle: _this.IssueTitle,
@@ -776,7 +776,7 @@ var EditIssueComponent = /** @class */ (function () {
         //image selection code end
         //update Issue code start
         this.updateIssue = function () {
-            _this.signuploader == false;
+            _this.signuploader = false;
             if (_this.file) {
                 _this.currendata.Image = _this.file;
                 _this.currendata.name = _this.file.name;

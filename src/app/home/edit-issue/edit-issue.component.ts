@@ -128,7 +128,7 @@ reader.readAsDataURL(this.file)
 
 //update Issue code start
 public updateIssue=()=>{
-  this.signuploader==false;
+  this.signuploader=false;
   if (this.file) {
     this.currendata.Image = this.file;
     this.currendata.name = this.file.name;

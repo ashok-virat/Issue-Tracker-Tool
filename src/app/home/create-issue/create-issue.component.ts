@@ -105,7 +105,7 @@ reader.readAsDataURL(this.file)
 
  //create Issue code start
  public createIssue=()=>{
-  this.signuploader==false;
+  this.signuploader=false;
     let data={
       userId:this.userId,
       IssueTitle:this.IssueTitle,

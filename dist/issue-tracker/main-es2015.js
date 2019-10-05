@@ -504,7 +504,7 @@ let CreateIssueComponent = class CreateIssueComponent {
         //get users code end
         //create Issue code start
         this.createIssue = () => {
-            this.signuploader == false;
+            this.signuploader = false;
             let data = {
                 userId: this.userId,
                 IssueTitle: this.IssueTitle,
@@ -741,7 +741,7 @@ let EditIssueComponent = class EditIssueComponent {
         //image selection code end
         //update Issue code start
         this.updateIssue = () => {
-            this.signuploader == false;
+            this.signuploader = false;
             if (this.file) {
                 this.currendata.Image = this.file;
                 this.currendata.name = this.file.name;
