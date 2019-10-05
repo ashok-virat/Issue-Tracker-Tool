@@ -11,7 +11,7 @@ export class SocketService {
   socket: any;
 
   constructor(public http:HttpClient) {
-    this.baseUrl='/';
+    this.baseUrl='http://15.206.27.155:4001';
     this.socket=io(this.baseUrl);
 
   }
