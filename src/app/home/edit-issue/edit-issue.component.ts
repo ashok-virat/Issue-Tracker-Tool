@@ -55,6 +55,7 @@ export class EditIssueComponent implements OnInit {
   public status: any;
   public description: any;
   public reporterName: any;
+  signuploader: boolean;
 
   constructor(public service:ServiceService,private toastr: ToastrService,public route:Router,public router:ActivatedRoute,public socketService:SocketService) {
     this.userId=Cookie.get('userId');
@@ -127,7 +128,7 @@ reader.readAsDataURL(this.file)
 
 //update Issue code start
 public updateIssue=()=>{
-  
+  this.signuploader==false;
   if (this.file) {
     this.currendata.Image = this.file;
     this.currendata.name = this.file.name;
@@ -138,6 +139,7 @@ public updateIssue=()=>{
   this.currendata.status=this.status;
    this.service.update(this.currendata,this.IssueId,this.authToken).subscribe(
      data=>{
+      this.signuploader==true;
        let details={
            username:this.username,
            reporterName:this.reporterName,
@@ -148,6 +150,9 @@ public updateIssue=()=>{
         this.route.navigate(["/View-Issue",this.IssueId])
        },2000);
        this.toastr.success(data.message)
+     },err=>{
+      this.signuploader==true;
+       this.toastr.error('some error occured')
      }
    )
 }

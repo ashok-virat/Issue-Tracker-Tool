@@ -67,7 +67,7 @@
                                  <div class="form-group box">
                                          <label>Assignee</label>
                                             <select class="custom-select custom-select-sm" name="Assignee" [(ngModel)]="Assignee"  [ngModelOptions]="{standalone: true}" >
-                                   
+                                           
                                               <option *ngFor="let users of allusers">{{users}}</option>
                                                  </select>
                                  </div>
@@ -81,6 +81,7 @@
                                                   </select>
                                              </div>
                                              <div class="submit-button">
+                                                <p class="loader" *ngIf="signuploader==false"></p>
                                               <button class="btn btn-primary" (click)="createIssue()" [disabled]="!createform.valid">submit</button>
                                              </div>
                                             

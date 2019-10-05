@@ -108,7 +108,6 @@ export class SignupComponent implements OnInit {
       data=>{
         this.toastr.success(data.message);
         setTimeout(() => {
-          console.log(data)
           Cookie.set('authToken',data.data.authToken);
           this.username=`${data.data.userDetails.firstName} ${data.data.userDetails.lastName}`;
           Cookie.set('fullName',this.username);

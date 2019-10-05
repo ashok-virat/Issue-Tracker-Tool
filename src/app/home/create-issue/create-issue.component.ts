@@ -54,6 +54,7 @@ export class CreateIssueComponent implements OnInit {
   editownuser: boolean;
   editotheruser: boolean;
   authToken: string;
+  signuploader: boolean;
   
   constructor(public service:ServiceService,private toastr: ToastrService,public route:Router,public router:ActivatedRoute,public socketService:SocketService) { 
     this.userId=this.router.snapshot.paramMap.get('userId');
@@ -104,6 +105,7 @@ reader.readAsDataURL(this.file)
 
  //create Issue code start
  public createIssue=()=>{
+  this.signuploader==false;
     let data={
       userId:this.userId,
       IssueTitle:this.IssueTitle,
@@ -132,6 +134,7 @@ reader.readAsDataURL(this.file)
     else {
       this.service.createIssue(data,this.authToken).subscribe(
         data=>{
+          this.signuploader=true;
           this.IssueTitle='';
           this.description='';
            this.status='';
@@ -143,6 +146,7 @@ reader.readAsDataURL(this.file)
          },1000);
         },
         err=>{
+          this.signuploader=true;
           this.toastr.error('some error occured');
         }
       )
