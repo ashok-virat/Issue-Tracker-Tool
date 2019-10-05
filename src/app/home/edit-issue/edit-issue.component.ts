@@ -139,7 +139,7 @@ public updateIssue=()=>{
   this.currendata.status=this.status;
    this.service.update(this.currendata,this.IssueId,this.authToken).subscribe(
      data=>{
-      this.signuploader==true;
+      this.signuploader=true;
        let details={
            username:this.username,
            reporterName:this.reporterName,
@@ -151,7 +151,7 @@ public updateIssue=()=>{
        },2000);
        this.toastr.success(data.message)
      },err=>{
-      this.signuploader==true;
+      this.signuploader=true;
        this.toastr.error('some error occured')
      }
    )

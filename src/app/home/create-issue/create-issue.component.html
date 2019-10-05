@@ -67,14 +67,14 @@
                                  <div class="form-group box">
                                          <label>Assignee</label>
                                             <select class="custom-select custom-select-sm" name="Assignee" [(ngModel)]="Assignee"  [ngModelOptions]="{standalone: true}" >
-                                           
+                                              <option>Assignee</option>
                                               <option *ngFor="let users of allusers">{{users}}</option>
                                                  </select>
                                  </div>
                                  <div class="form-group box">
                                             <label>Status</label>
                                                   <select class="custom-select custom-select-sm" name="status" [(ngModel)]="status"  required>
-                                                    
+                                                    <option>status</option>
                                                     <option>Progress</option>
                                                      <option>In-test</option>
                                                     <option>Done</option>

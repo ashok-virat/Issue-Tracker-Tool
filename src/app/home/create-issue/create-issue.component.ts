@@ -125,7 +125,7 @@ reader.readAsDataURL(this.file)
       this.toastr.warning('please provide status of you Issue')
     }
    else if(!this.Assignee){
-      this.toastr.warning('please provide your Assignee')
+      this.toastr.warning('please Choose Your Assignee')
     }
     else if(!this.description){
       this.toastr.warning('please provide description')
