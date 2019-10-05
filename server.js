@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const publicPath = path.join(__dirname, '..', 'issue-tracker/dist/issue-tracker');
+const publicPath = path.join(__dirname, '..', 'Issue-Tracker-Tool/dist/issue-tracker');
 const proxy = require('http-proxy-middleware');
 
 /**
