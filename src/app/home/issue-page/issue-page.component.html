@@ -1,0 +1,127 @@
+<div class="container-fluid">
+        <div class="row">  
+            <div class="displayBlockMobile" style="width:99.999%;z-index:1">
+                    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(70, 69, 69)">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <a class="navbar-brand"><img src="./../../../assets/Biohazard-Sign-PNG-HD.png" alt=""></a>
+                          
+                            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item">
+                                  <a class="nav-link" id="active">My Issue</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" [routerLink]="['/all-Issue',userId]">All Issue</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" [routerLink]="['/create-Issue',userId]">Add Issue</a>
+                                </li>
+                              </ul>
+                              <button class="btn btn-primary" (click)="logout()">logout</button>
+                            </div>
+                          </nav>
+                    </div>
+                    </div>
+                    </div>
+                    <div>
+                      <h5 class="timer">Time: {{time | date:'mediumTime'}}</h5>
+                    </div>
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <div *ngIf="notify==false" class="notify">
+                                <h5 class="notification" style="color:red;font-size:19px;">Notification Alert<i class="fas fa-bell"></i></h5>
+                               <h5 class="notification" *ngIf="otheruser==true">Message : {{username}} commented {{reporterName}} Issue</h5>
+                               <h5 class="notification" *ngIf="ownuser==true">Message : {{username}} commented his Issue</h5>
+                               <h5 class="notification" *ngIf="addwatcher==true">Message : {{username}} added {{reporterName}} watcher List</h5>
+                               <h5 class="notification" *ngIf="editotheruser==true">Message : {{username}} edited {{reporterName}} Issue</h5>
+                               <h5 class="notification" *ngIf="editownuser==true">Message : {{username}} edited his Issue</h5>
+                               <p [routerLink]="['/View-Issue',IssueId]" class="link">View Issue</p>
+                              </div>
+                           
+                        </div>
+                        <div class="col-md-4"></div>
+                      </div>
+                    </div>
+                   
+                        <div class="search">
+                                  <input type="search" aria-label="search" placeholder="search" name="key"
+                                  [(ngModel)]="key">
+                                  <i class="fas fa-search"></i>
+                            </div>     
+                       
+
+
+                          <div class="header">
+                            <i class="fas fa-user-tie">---{{fullname}}</i>
+                          </div>  
+                         <div class="container-fluid"  style="width:99.9%" *ngIf="Issuelength>0">
+                           <div class="row">
+                           
+                              <div class="table-responsive">
+                                <table class="table">
+                                 
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th>title</th>
+                                        <th>status</th>
+                                        <th>reporter</th>
+                                        <th>date</th>
+                                        <th>view</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let Issues of Issue |search:'IssueTitle,reporterName,status,createdOn':key" >
+                                        <td>{{Issues.IssueTitle | uppercase}}</td>
+                                        <td>{{Issues.status | uppercase}}</td>
+                                        <td>{{Issues.reporterName | uppercase}}</td>
+                                        <td>{{Issues.createdOn | date}}</td>
+                                        <td><i class="fas fa-eye"  [routerLink]="['/View-Issue',Issues.IssueId]"></i></td>
+                                      </tr>
+                                      
+                                    </tbody>
+                                  </table>
+                                 
+                              </div>
+                            
+                           </div>
+                         </div>
+                    <div class="container" *ngIf="Issuelength==0" style="margin-top:40px;">
+                      <div class="row">
+                        <div class="col-md-4">
+
+                        </div>
+                        <div class="col-md-4">
+                          <h4 class="no-issue"> No Issue Assigned by {{fullname}}</h4>
+                         
+                        </div>
+                        <div class="col-md-4">
+                          
+                          </div>
+                      </div>
+                    </div>
+
+                 <div class="container-fluid">
+                   <div class="row">
+                     <div class="col-md-12">
+                        <nav aria-label="Page navigation example Next-page" class="next-page">
+                            <ul class="pagination justify-content-end ">
+                              <li class="page-item">
+                                <a class="page-link"  aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                </a>
+                              </li>
+                              <li class="page-item">
+                                <a class="page-link" [routerLink]="['/all-Issue',userId]" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>
+                      </div>
+                   </div>
+                 </div>
+                

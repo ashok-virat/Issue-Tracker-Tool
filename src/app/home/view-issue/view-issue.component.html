@@ -1,0 +1,136 @@
+<div class="container-fluid">
+    <div class="row">  
+        <div class="displayBlockMobile" style="width:99.999%;z-index:1">
+                <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(70, 69, 69)">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand"><img src="./../../../assets/Biohazard-Sign-PNG-HD.png" alt=""></a>
+                      
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                              <a class="nav-link" [routerLink]="['/issue',userId]">My Issue</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" [routerLink]="['/all-Issue',userId]">All Issue</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" [routerLink]="['/create-Issue',userId]">Add Issue</a>
+                            </li>
+                          </ul>
+                          <button class="btn btn-primary" (click)="logout()">logout</button>
+                        </div>
+                      </nav>
+                </div>
+                </div>
+                </div>
+                <div class="container-fluid" style="background-color:rgb(250, 246, 246);" *ngIf="notify==false">
+                    <div class="row">
+                      <div class="col-md-4"></div>
+                      <div class="col-md-4">
+                          <div class="notify">
+                              <h5 class="notification" style="color:red;font-size:19px;">Notification Alert<i class="fas fa-bell"></i></h5>
+                              <h5 class="notification" *ngIf="otheruser==true">Message : {{username}} comment {{reporterName}} Issue</h5>
+                              <h5 class="notification" *ngIf="ownuser==true">Message : {{username}} comment his Issue</h5>
+                              <h5 class="notification" *ngIf="addwatchernotify==true">Message : {{username}} add {{reporterName}} watcher List</h5>
+                              <h5 class="notification" *ngIf="editotheruser==true">Message : {{username}} edit {{reporterName}} Issue</h5>
+                              <h5 class="notification" *ngIf="editownuser==true">Message : {{username}} edit his Issue</h5>
+                             <p [routerLink]="['/View-Issue',IssueId]" class="link">View Issue</p>
+                            </div>
+                         
+                      </div>
+                      <div class="col-md-4"></div>
+                    </div>
+                  </div>
+                 
+               
+                <div class="container-fluid model-view">
+                  <div class="row">
+                    
+                    <div class="col-md-12">
+                      <i class="fas fa-user-tie" style="margin-bottom:20px;">---{{reporterName | uppercase}}</i>
+                        <div class="watcher">
+                          <ul>
+                            <li>
+                               <i class="fas fa-plus"  (click)="addwatcher()">Add WatchList</i>
+                            </li>
+                            <li>
+                              <i class="fas fa-trash-alt" (click)="deleteIssue(IssueIdblog)"  title="Delete Issue">Delete</i>  
+                            </li>
+                          </ul>
+                       
+                        </div>
+                      <div class="view-element">
+                        <h5>Issue Title:</h5>
+                          <p>{{IssueTitle}}</p>
+                      </div>
+                      <div class="view-element">
+                        <h5>description:</h5>
+                          <p [innerHtml]="description"></p>
+                      </div>
+                      <div class="view-element">
+                        <h5>reporterName:</h5>
+                          <p>{{reporterName}}</p>
+                      </div>
+                      <div class="view-Img">
+                        <h5>Image:</h5>
+                          <img src="http://15.206.27.155:4001/{{ProductImage}}" alt="">
+                      </div>
+                      <div class="view-element">
+                        <h5>Assignee:</h5>
+                          <p>{{Assignee}}</p>
+                      </div>
+                      <div class="view-element">
+                        <h5>status:</h5>
+                          <p>{{status}}</p>
+                      </div>
+                      <div class="view-bottons">
+                        <button ><i class="fas fa-eye" (click)="getwatcherlist()"  title="Delete Issue"  data-target="#exampleModal" data-toggle="modal">Watchers</i></button>
+                        <button ><i class="fas fa-edit" [routerLink]="['/edit-Issue',IssueIdblog]"  title="Edit Issue">Edit</i></button>
+                        <button ><i class="fas fa-comment" (click)="getcomments()" title="view comments">Comment</i></button>
+                      </div>
+                      <div>
+                      <form  #createform="ngForm" *ngIf="this.commentvalue==true">
+                        <div class="form-group" id="comment-box">
+                             <input type="text" class="form-control" name="comment" [(ngModel)]="comment" id="commment-box2" aria-describedby="emailHelp" placeholder="add comment" style="width:300px;" required>
+                             <i class="fas fa-directions" (click)="addcomment()" id="submit-comment">Submit</i>
+                        </div>
+                        
+                        </form>
+                        </div>
+                      <div class="comment" *ngIf="this.commentlength>0">
+                        <div class="view-comment" *ngIf="this.commentvalue==true">
+                          <h5>comments:</h5>
+                            <div class="comment-box" *ngFor="let comment of comments">
+                              <h6 style="text-transform:capitalize;color:black">{{comment.reportername}} :</h6>
+                              <p style="font-size:18px;">{{comment.comments}}</p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+              
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color:Red;text-transform: uppercase">Watcher List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li *ngFor="let username of watchers" class="watchers">{{username.watcherName}}</li>
+          <li *ngIf="showwatchers==true">No Watchers On This Issue</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

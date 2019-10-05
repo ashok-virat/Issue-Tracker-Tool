@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <h1 class="header">Issue tracker</h1>
+        <div class="row">
+            <div class="col-md-4">
+    
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">
+                                <i class="fas fa-user-secret"></i>
+                            sign up
+                        </div>
+                        <form>
+                    <div class="form-group">
+                     <label for="">firstname</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="firstName" [(ngModel)]="firstName" placeholder="firstname">
+                                     </div>
+                     <div class="form-group">
+                            <label for="">lastname</label>
+                                <input type="email" class="form-control" id="exampleInputEmail2" name="lastName" [(ngModel)]="lastName" placeholder="lastname">
+                        </div>
+                        <div class="form-group">
+                          <label for="">mobilenumber</label>
+                         <input type="number" class="form-control" id="exampleInputPassword3" name="mobileNumber" [(ngModel)]="mobileNumber" placeholder="mobilenumber">
+                       </div>
+                     <div class="form-group">
+                             <label for="">Email</label>
+                                 <input type="email" class="form-control" id="exampleInputEmail4" name="email" [(ngModel)]="email" placeholder="email">
+                        </div>
+                      <div class="form-group">
+                              <label for="">password</label>
+                                <input type="password" class="form-control" id="exampleInputEmail5" name="password" [(ngModel)]="password" placeholder="password"> 
+                                                 </div>
+                             <div class="form-group">
+                              <label for="">ConfirmPassword</label>
+                                <input type="password" class="form-control" id="exampleInputEmail6" name="ConfirmPassword" [(ngModel)]="ConfirmPassword" placeholder="ConfirmPassword"> 
+                                                 </div>
+                            <div class="btn-alignment">
+                                <p class="loader" *ngIf="signuploader==false"></p>
+                            <button type="submit" class="btn btn-primary" (click)="signup()">Sign up</button>
+                            </div>
+                          </form>
+                       
+                    </div>
+                    <button type="submit"  class="fab fa-google-plus" (click)="socialSignIn('google')">Signin with google</button>
+                
+                    <div class="signup">
+                        <small>do you have a account?</small><a [routerLink]="['/signin']" style="font-size:16px;">signin</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                
+                </div>
+        </div>
+        <div class="container footer">
+                <div class="row" >
+                  <div class="footer-main-div">
+                    <div class="footer-social-icons">
+                      <ul>
+                          <p>Follow me</p>
+                      <li><a href="https://twitter.com/Ashok82652056" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="https://www.instagram.com/__ashokvirat__/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                      <li><a href="https://www.facebook.com/bejo.carter" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                      <li><a href="https://github.com/ashok-virat" target="_blank"><i class="fab fa-github"></i></a></li>
+                      </ul>
+                      <p>aruashok17@gmail.com</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>

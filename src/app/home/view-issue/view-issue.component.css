@@ -1,0 +1,231 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+img {
+    width:50px;
+}
+ul li a{
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:15px;
+    border:2px solid white;
+    padding:10px;
+    margin-left:30px;
+    margin-right:30px;
+    border-radius:30px;
+    text-align:center;
+    cursor: pointer;
+    transition:1s;
+}
+ul li a:hover {
+    color:red;
+ }
+.btn-primary {
+    border:1px solid white;
+    background-color:rgb(70, 69, 69);
+    color:white;
+    font-family: 'Times New Roman', Times, serif;
+}
+@media only screen and (max-width:990px) {
+  .navbar-collapse ul {
+        text-align:center;
+       width:200px;
+       text-align:center;
+       margin-left:auto;
+       margin-right:auto;
+    }
+.navbar-collapse ul li {
+    text-align:center;
+       padding:10px;
+        display: block;
+    }
+   
+    
+}
+
+.model-view {
+    background-color:rgb(250, 246, 246);
+  
+}
+.model-view i {
+    margin-top:10px;
+
+    font-size:19px;
+    margin-top:20px;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    color:rgb(10, 10, 10);
+}
+.view-element {
+    box-shadow:0px 0px 10px black;
+    background-color:white;
+    padding:10px;
+    margin:10px;
+   
+}
+
+.view-element h5 {
+  
+    margin-top:40px;
+    font-size:20;
+    text-transform:uppercase;
+    color:red;
+    font-weight:bold;
+    font-family:'Times New Roman', Times, serif;
+}
+.view-element p {
+    color:rgb(8, 8, 8);
+    margin-left:100px;
+    font-size:17px;
+    text-transform:capitalize;
+}
+
+.view-Img h5{
+    margin-top:20px;
+    font-size:20;
+    text-transform:uppercase;
+    color:red;
+    font-weight:bold;
+    font-family:'Times New Roman', Times, serif;
+}
+.view-Img{
+    background-color:white;
+    padding:10px;
+    margin:10px;
+    box-shadow:0px 0px 10px black; 
+}
+.view-Img img {
+    width:50%;
+    padding:10px;
+
+}
+@media only screen and (max-width:780px) {
+  
+.view-Img img {
+    width:100%;
+}
+   
+}
+.view-bottons {
+    width:100%;
+    text-align:center;
+}
+.view-bottons button  {
+    text-align:center;
+    margin-left:10px;
+    background-color:rgb(250, 246, 246);
+    margin-bottom:30px;
+    border:none;
+}
+.view-bottons button i:hover {
+   color:red;
+}
+.view-bottons button i {
+    font-size:15px;
+}
+.comment-box {
+    border-radius:20px;
+    margin:10px;
+    padding:10px;
+    background-color:white;
+}
+.comment-box h6 {
+    color:blue;
+    font-size:19px;
+}
+.view-comment h5 {
+    margin-top:20px;
+    font-size:20;
+    text-transform:uppercase;
+    color:red;
+    font-weight:bold;
+    font-family:'Times New Roman', Times, serif;
+}
+.view-comment p{
+    margin-left:100px;
+    text-transform: capitalize;
+}
+button:focus {
+    outline:0;
+}
+.watcher ul {
+    text-align:right;
+}
+.watcher ul li {
+    display:inline-block;
+    list-style-type:none;
+    margin:10px;
+    text-align:right;
+}
+.watcher ul li i {
+    cursor:pointer;
+  font-size:16px;
+  color:black;
+}
+.watcher ul li i:hover {
+    color:red;
+  }
+  .btn-primary {
+    background-color:rgb(250, 246, 246);
+      color:black;
+  }
+  .btn-primary:hover {
+      color:grey;
+  }
+
+  .modal-body ul li{
+      text-transform:capitalize;
+      margin-left:50px;
+      font-size:18px;
+      color:black;
+  }
+  .modal-content {
+      box-shadow:0px 0px 20px black;
+      background:white;
+      border-radius:20px;
+      border-bottom:none;
+  }
+  .notification {
+    color:black;
+    text-align:center;
+    text-transform: uppercase;
+    font-size:15px;
+    margin-top:20px;
+}
+.link {
+    color:black;
+    text-transform: uppercase;
+    font-size:15px;
+    margin-top:20px;
+    text-align:center;
+    text-decoration:underline;
+    border:none;
+    font-style:bold;
+    font-weight:600;
+    cursor:pointer;
+}
+.link:focus {
+    outline:0;
+}
+.notify {
+    border:2px solid black;
+    padding:10px;
+    border-radius:20px;
+    margin-top:20px;
+    box-shadow:0px 0px 20px black;
+}
+#commment-box2 {
+    border-radius:20px;
+}
+#comment-box input {
+    outline:0;
+}
+#submit-comment {
+    cursor: pointer;
+    width:100px;
+   margin-left:100px;
+   font-size:16px;
+}
+#submit-comment:hover {
+    color:red;
+}

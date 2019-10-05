@@ -1,0 +1,127 @@
+<div class="container-fluid">
+    <div class="row">  
+        <div class="displayBlockMobile" style="width:99.999%;z-index:1">
+                <nav class="navbar navbar-expand-lg navbar-light" style="background-color:rgb(70, 69, 69)">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand"><img src="./../../../assets/Biohazard-Sign-PNG-HD.png" alt=""></a>
+                      
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                              <a class="nav-link" [routerLink]="['/issue',userId]">My Issue</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" [routerLink]="['/all-Issue',userId]">All Issue</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="active">Add Issue</a>
+                            </li>
+                          </ul>
+                          <button class="btn btn-primary" (click)="logout()">logout</button>
+                        </div>
+                      </nav>
+                </div>
+                </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-4"></div>
+                      <div class="col-md-4">
+                          <div *ngIf="notify==false" class="notify">
+                              <h5 class="notification" style="color:red;font-size:19px;">Notification Alert<i class="fas fa-bell"></i></h5>
+                              <h5 class="notification" *ngIf="otheruser==true">Message : {{username}} commented {{reporterName}} Issue</h5>
+                               <h5 class="notification" *ngIf="ownuser==true">Message : {{username}} commented his Issue</h5>
+                               <h5 class="notification" *ngIf="addwatcher==true">Message : {{username}} added {{reporterName}} watcher List</h5>
+                               <h5 class="notification" *ngIf="editotheruser==true">Message : {{username}} edited {{reporterName}} Issue</h5>
+                               <h5 class="notification" *ngIf="editownuser==true">Message : {{username}} edited his Issue</h5>
+                             <p [routerLink]="['/View-Issue',IssueId]" class="link">View Issue</p>
+                            </div>
+                      </div>
+                      <div class="col-md-4"></div>
+                    </div>
+                  </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 Issue">
+                          <i class="fab fa-accessible-icon">Create your issue</i>
+                          <form  #createform="ngForm" enctype="multipart/form-data">
+                                <div class="form-group">
+                                     <label for="exampleInputEmail1">Issue Title</label>
+                                     <input type="text" class="form-control" name="issuetitle" [(ngModel)]="IssueTitle" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Issue Title"  [ngModelOptions]="{standalone: true}" required>
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputEmail1">Description</label>
+                                        <app-ngx-editor style="background-color:rgb(182, 228, 255)" [placeholder]="description"
+                                        [config]="editorConfig" [spellcheck]="true" [(ngModel)]="description"  [ngModelOptions]="{standalone: true}"
+                                        [ngModelOptions]="{standalone: true}" class="descrip"></app-ngx-editor>
+                                 </div>
+                                 <div class="form-group box">
+                                         <label class="file-selection">Image</label>
+                                         <input type="file" (change)="imageselect($event)" required>
+                                       <div [hidden]="!imagePreview" class="image-Preview">
+                                        <img src="{{imagePreview}}">
+                                       </div>
+                                 </div>
+                                 <div class="form-group box">
+                                         <label>Assignee</label>
+                                            <select class="custom-select custom-select-sm" name="Assignee" [(ngModel)]="Assignee"  [ngModelOptions]="{standalone: true}" >
+                                   
+                                              <option *ngFor="let users of allusers">{{users}}</option>
+                                                 </select>
+                                 </div>
+                                 <div class="form-group box">
+                                            <label>Status</label>
+                                                  <select class="custom-select custom-select-sm" name="status" [(ngModel)]="status"  required>
+                                                    
+                                                    <option>Progress</option>
+                                                     <option>In-test</option>
+                                                    <option>Done</option>
+                                                  </select>
+                                             </div>
+                                             <div class="submit-button">
+                                              <button class="btn btn-primary" (click)="createIssue()" [disabled]="!createform.valid">submit</button>
+                                             </div>
+                                            
+                                </form>
+                        </div>
+                        <div class="col-md-4 post">
+                            <h2 class="warning">Warning</h2>
+                            <ul>
+                                <li>Do not post any unwanted Issue</li>
+                                <li>Do not post illegal words </li>
+                                <li>please respect each and every member</li>
+                            </ul>
+                            <h2 class="warning">Instructions</h2>
+                            <ul>
+                                    <li>choose your Issue Title carefully</li>
+                                    <li>Explain your question clearly in full details. If its related to a case study or particular video in a particular level, mention those details as wel</li>
+                                    <li>In case your answer contains files, you may upload the files to Github and share the link with others</li>
+                                    <li>please provide your issue related screenshot</li>
+                                    <li>choose your Assignee</li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                         <nav aria-label="Page navigation example Next-page" class="next-page">
+                             <ul class="pagination justify-content-end ">
+                               <li class="page-item">
+                                 <a class="page-link" [routerLink]="['/all-Issue',userId]" aria-label="Previous">
+                                   <span aria-hidden="true">&laquo;</span>
+                                 </a>
+                               </li>
+                               <li class="page-item">
+                                 <a class="page-link" aria-label="Next">
+                                   <span aria-hidden="true">&raquo;</span>
+                                 </a>
+                               </li>
+                             </ul>
+                           </nav>
+                       </div>
+                    </div>
+                  </div>
+               
