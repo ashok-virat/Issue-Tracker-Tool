@@ -1761,7 +1761,7 @@ var SocketService = /** @class */ (function () {
             });
             return ak;
         };
-        this.baseUrl = '/';
+        this.baseUrl = 'http://15.206.27.155:4001';
         this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_4___default()(this.baseUrl);
     }
     SocketService.ctorParameters = function () { return [
